@@ -4,10 +4,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from GitHub
-                git 'https://github.com/skarthiselvaraj/Jenkins-Zero-To-Hero'
+                git branch: 'main', url: 'https://github.com/skarthiselvaraj/Jenkins-Zero-To-Hero'
             }
         }
+        // Other stages...
+    }
+}
+
         stage('Compile Java') {
             steps {
                 // Compile the Java program
