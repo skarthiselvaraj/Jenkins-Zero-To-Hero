@@ -1,31 +1,24 @@
 pipeline {
-  agent none
-  stages {
-    stage('Back-end') {
-      agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
-      }
-      steps {
-        sh 'mvn --version'
-      }
-    }
-    stage('Middel-end') {
-      agent {
-        docker [ public class HelloWorld {
+    agent any
 
-    public static void main(String[] args) {
-        // Prints "Hello, World!" to the console
-        System.out.println("Hello, World!");
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from GitHub
+                git 'https://github.com/skarthiselvaraj/Jenkins-Zero-To-Hero'
+            }
+        }
+        stage('Compile Java') {
+            steps {
+                // Compile the Java program
+                sh 'javac new-folder/HelloWorld.java'
+            }
+        }
+        stage('Run Java') {
+            steps {
+                // Run the Java program
+                sh 'java -cp new-folder HelloWorld'
+            }
+        }
     }
-}
-
-    stage('Front-end') {
-      agent {
-        docker { image 'node:16-alpine' }
-      }
-      steps {
-        sh 'node --version'
-      }
-    }
-  }
 }
