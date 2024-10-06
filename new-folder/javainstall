@@ -7,11 +7,8 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/skarthiselvaraj/Jenkins-Zero-To-Hero'
             }
         }
-        // Other stages...
-    }
-}
 
-        stage('Compile Java') {
+     stage('Compile Java') {
             steps {
                 // Compile the Java program
                 sh 'javac new-folder/HelloWorld.java'
